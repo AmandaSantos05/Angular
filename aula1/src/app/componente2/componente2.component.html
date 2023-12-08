@@ -1,0 +1,37 @@
+<!-- 
+    PROPERTY BIND
+    Troca de informações do arquivo TS para o HTML e vice versa.
+    Existem 3 tipos de bind:
+    ()   -> HTML chama uma função/variável no arquivo TS
+    []   -> TS envia para o arquivo HTML
+    [()] -> Comunicação
+ -->
+
+<!-- IF -->
+<button (click)="visibilidadeTexto()">Clique aqui</button>
+<p *ngIf="exibirTexto">Aprendendo a trabalhar com o ngIf</p>
+
+<!-- TEMPLATE -->
+<ng-template [ngIf]="exibirTexto">
+    <p>Texto dentro do template...</p>
+</ng-template>
+
+<!-- FOR -->
+<ul *ngFor="let pessoa of nomes; index as i">
+    <li>{{i}} - {{pessoa}}</li>
+</ul>
+
+<!-- SWITCH -->
+<select [(ngModel)]="linguagem">
+    <option value="">Selecionar alguma linguagem</option>
+    <option value="C#">C#</option>
+    <option value="Java">Java</option>
+    <option value="Python">Python</option>
+</select>
+
+<ul [ngSwitch]="linguagem">
+    <li *ngSwitchCase="'C#'">C# é uma linguagem desenvolvida pela Microsoft</li>
+    <li *ngSwitchCase="'Java'">Java é uma linguagem que pertence a Oracle</li>
+    <li *ngSwitchCase="'Python'">Python é uma linguagem muito rápida</li>
+    <li *ngSwitchDefault>Informe uma linguagem</li>
+</ul>
